@@ -17,15 +17,20 @@ public class DrivetrainSub extends SubsystemBase {
   //Assign motors
   public Victor rightMotor = new Victor(Constants.LEFTMOTOR);
   public Victor leftMotor = new Victor(Constants.RIGHTMOTOR);
+  public int direction = 1;
 
   // Function that sets the speed of the Motor
   public void setLeftDrive(double speed){
-    leftMotor.setSpeed(-speed);
+    leftMotor.setSpeed(-speed*direction);
   }
   public void setRightDrive(double speed){
-    rightMotor.setSpeed(speed);
+    rightMotor.setSpeed(speed*direction);
   }
 
+  public void invertControls(){
+    direction*=-1;
+  }
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

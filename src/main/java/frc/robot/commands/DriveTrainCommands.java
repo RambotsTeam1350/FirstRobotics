@@ -27,6 +27,10 @@ public class DriveTrainCommands extends CommandBase {
     // Sets a value for the motors according to the value of the joysticks
     DrivetrainSub.GetInstance().setLeftDrive(leftJoyStick);
     DrivetrainSub.GetInstance().setRightDrive(rightJoyStick);
+
+    if(RobotContainer.GetInstance().getInvertButton()==true)
+      DrivetrainSub.GetInstance().invertControls();
+      
   }
 
   // Called once the command ends or is interrupted.
